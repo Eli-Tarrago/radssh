@@ -29,6 +29,17 @@ Star Commands From Core Plugins
 -------------------------------
 Many additional StarCommands are loaded by RadSSH in the form of Plugins. These can be copied and customized. Star Commands from user plugins will override the ones loaded from system plugins.
 
+\*jump
+Allow connections to be made through paramiko connections via tunneling. In other words, Uses an intermediary device to tunnel connections through. Identical in concept to a `Bastion Host. <https://en.wikipedia.org/wiki/Bastion_host>`_
+
+If I wanted to log into a server in a dmz (finaldestination.example.com) must first log into a jumpbox (jumpbox.example.com), the flow of traffic would be: Origin -> jumpbox.example.com -> finaldestination.example.com.
+
+Syntax for this example would be: ``jump:jumpbox.example.com/finaldestination.example.com``
+
+Bash expansion is valid here: ``jump:jumpbox.example.com/finaldestination{1,2,3,4}.example.com``
+
+Multihop is also valid: ``jump:first/second/destination``
+
 Add & Drop Host Connections
 ---------------------------
 To change the cluster connections during an active RadSSH session.
